@@ -1,11 +1,13 @@
 import React,{Component} from "react";
-
+import { Spin } from 'antd';
+import './popular.css'
 import {reqHotByLanguage} from "../../api";
-export  default class Main extends Component{
+
+export  default class Popular extends Component{
 
   state = {
+    page:1,
     languages: ['All','JavaScript','Ruby','Java','CSS','Python'],
-    data:"123",
     items:[],
     mainStyle:{
       display:'flex',
@@ -47,14 +49,37 @@ export  default class Main extends Component{
       color:"orange"
     },
     currentLanguage:"All"
-  }
+  };
 
   componentDidMount() {
     this.showHotProject('All')
+    window.addEventListener("scroll", async ()=>{
+      let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      let clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      let scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+      //避免没有数据的时候 重复执行 scrollHeight > clientHeight
+      if(scrollHeight > clientHeight && scrollTop + clientHeight === scrollHeight) {
+        //加载下一页数据
+        this.setState({
+          page:this.state.page+1
+        })
+        const result = await reqHotByLanguage(this.state.currentLanguage,this.state.page)
+        if(result.items){
+          //新增第二页数据
+          const items = this.state.items
+          items.push(...result.items)
+          this.setState({items})
+        }
+      }
+    })
   }
 
+  /**
+   * 根据语言显示热门项目
+   * @param language
+   * @returns {Promise<void>}
+   */
   showHotProject =async language =>{
-    console.log(language)
     this.setState({
       currentLanguage:language
     })
@@ -68,7 +93,7 @@ export  default class Main extends Component{
  render() {
     const {items,starStyle,imgStyle,mainStyle,forkStyle,warningStyle,userStyle,ulStyle,liStyle,currentLanguage} = this.state;
    return (
-     <div>
+     <div ref='popular'>
        <header>
          <nav>
            <ul style={ulStyle}>
@@ -80,7 +105,7 @@ export  default class Main extends Component{
        </header>
        <main style={mainStyle}>
          {items.map((v,k)=>(
-           <div id='card' style={this.state.cardStyle}>
+           <div id='card' key={k} style={this.state.cardStyle}>
              <h3 style={{fontWeight:300}}>#{k+1}</h3>
              <img style={imgStyle} src={v.owner.avatar_url} alt=""/>
              <h4 style={{color:"indianred"}}>{v.name}</h4>
@@ -93,6 +118,10 @@ export  default class Main extends Component{
            </div>
          ))}
        </main>
+       <div className="example">
+         <Spin />Loading...
+       </div>
+
      </div>
 
    )
