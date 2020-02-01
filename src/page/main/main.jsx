@@ -28,7 +28,7 @@ export  default class Main extends Component{
       display:'flex',
       flexDirection:'column',
       alignItems:'center',
-      margin:'3px',
+      margin:'1px',
       backgroundColor:'#f4f4f4'
     },
     imgStyle:{
