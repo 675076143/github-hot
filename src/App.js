@@ -1,24 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import  Main from './page/main/main'
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Main/>
+      <footer style={{backgroundColor:"#f6f6f6",padding:'20px'}}>
+        <h4 style={{color:"gray",textAlign:"center"}}>作业：显示github热门项目</h4>
+      </footer>
     </div>
   );
 }
