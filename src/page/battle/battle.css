@@ -24,6 +24,10 @@
 .battle-options:nth-child(-n+4){
     width: 25%;
 }
+.battle-options:nth-child(-n+4)>p{
+    text-align: center;
+    font-weight: 500;
+}
 .battle-options:nth-child(n+5){
     width: 40%;
 }

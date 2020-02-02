@@ -3,7 +3,7 @@ import './battle.css'
 export default class Battle extends Component{
   render() {
     return(
-      <div className='battle'>
+      <main className='battle'>
         <h1>Instructions</h1>
         <div className='battle-options'>
           <p>Enter two Github users</p>
@@ -12,13 +12,13 @@ export default class Battle extends Component{
           </div>
         </div>
         <div className='battle-options'>
-          <p>Enter two Github users</p>
+          <p>Battle</p>
           <div>
             <i className="fa fa-fighter-jet fa-5x" style={{color:"gray"}}></i>
           </div>
         </div>
         <div className='battle-options'>
-          <p>Enter two Github users</p>
+          <p>See the winner</p>
           <div>
             <i className="fa fa-users fa-5x" style={{color:"rgb(253,231,0)"}}></i>
           </div>
@@ -39,7 +39,7 @@ export default class Battle extends Component{
             <input type="submit" value='SUBMIT'/>
           </div>
         </div>
-      </div>
+      </main>
     )
   }
 }

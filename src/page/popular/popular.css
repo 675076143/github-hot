@@ -1,8 +1,21 @@
-.example {
+.loading {
     text-align: center;
     border-radius: 4px;
     margin-bottom: 20px;
     padding: 30px 50px;
     margin: 0;
-    color: coral;
+}
+ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+li{
+    margin: 10px;
+    cursor: pointer;
+}
+main{
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
