@@ -5,6 +5,7 @@ import  Popular from './page/popular/popular'
 import Battle from "./page/battle/battle";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
+import BattleResult from "./page/battleResult/battleResult";
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Switch>{/*只匹配以下其中一个*/}
           <Route path='/' exact component={Popular} />
           <Route path='/Battle' exact component={Battle} />
+          <Route path='/BattleResult' exact component={BattleResult} />
           <Redirect to='/' />
         </Switch>
       </BrowserRouter>

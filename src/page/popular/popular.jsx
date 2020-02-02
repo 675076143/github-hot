@@ -17,9 +17,11 @@ export  default class Popular extends Component{
     this.showHotProject('All')
     //监听是否滚动到底，从而加载第二页数据
     window.addEventListener("scroll", async ()=>{
+      console.log('scroll')
       let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
       let clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
       let scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+      console.log(scrollTop+" + "+clientHeight+" and "+scrollHeight)
       //避免没有数据的时候 重复执行 scrollHeight > clientHeight
       if(scrollHeight > clientHeight && scrollTop + clientHeight === scrollHeight) {
         //加载下一页数据

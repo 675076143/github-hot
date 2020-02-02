@@ -1,0 +1,11 @@
+.battle-result{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.reset{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
