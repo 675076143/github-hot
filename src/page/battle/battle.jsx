@@ -1,7 +1,7 @@
 import React,{Component} from "react";
 import './battle.css'
 import {NavLink} from "react-router-dom";
-export default class BattleHome extends Component{
+export default class Battle extends Component{
 
   state = {
     user1:'',
