@@ -1,3 +1,9 @@
 .active{
-    color: red !important;
+    color: indianred !important;
+}
+.nav-link{
+    font-weight: bold;
+}
+header{
+    margin: 30px 10px;
 }

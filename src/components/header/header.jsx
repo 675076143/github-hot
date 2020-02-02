@@ -1,6 +1,6 @@
 import  './header.css'
 import React,{Component} from "react";
-import {BrowserRouter, NavLink} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 export  default class Header extends Component{
   state = {
@@ -15,10 +15,8 @@ export  default class Header extends Component{
     const {linkStyle} = this.state
     return(
       <header>
-        <BrowserRouter>
-          <NavLink to='/'  exact style={linkStyle} activeClassName='active'>Popular</NavLink>
-          <NavLink to='/Battle' style={linkStyle} activeClassName='active'>Battle</NavLink>
-        </BrowserRouter>
+        <NavLink className='nav-link' to='/'  exact style={linkStyle} activeClassName='active'>Popular</NavLink>
+        <NavLink className='nav-link'  to='/Battle' style={linkStyle} activeClassName='active'>Battle</NavLink>
       </header>
     )
   }
